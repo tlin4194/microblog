@@ -2,9 +2,8 @@ from flask import render_template
 from app import app
 
 
-@app.route('/')
-@app.route('/index')
-def index():
+@app.route('/index_raw')
+def index_raw():
     user = {'username': 'Alice'}
     return f'''
     <html>
@@ -19,8 +18,9 @@ def index():
     </html>'''
 
 
-@app.route('/index_v2')
-def index_v2():
+@app.route('/')
+@app.route('/index')
+def index():
     user1 = {'username': 'Alice'}
     user2 = {'username': 'Bob'}
     posts = [
@@ -36,8 +36,8 @@ def index_v2():
     return render_template('index.html', title=user1["username"], user=user1, posts=posts)
 
 
-@app.route('/index_v3')
-def index_v3():
+@app.route('/index_v2')
+def index_v2():
     user1 = {'username': 'Alice'}
     user2 = {'username': 'Bob'}
     posts = [
